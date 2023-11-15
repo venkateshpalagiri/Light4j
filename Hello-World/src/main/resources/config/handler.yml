@@ -69,6 +69,7 @@ handlers:
   - com.networknt.server.handler.ServerShutdownHandler@shutdown
   # Business Handlers
   - com.networknt.postservice.handler.PostDataPostHandler
+  - com.networknt.postservice.handler.HelloHandler@helloWorld
 
 
 chains:
@@ -103,6 +104,10 @@ paths:
     exec:
       - security
       - info
+  - path: '/hello'
+    method: 'get'
+    exec:
+      - helloWorld
 
   - path: '/logger'
     method: 'get'
